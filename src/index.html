@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="id"><head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'">
+  <title>TikTok Live Overlay</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="controls.css">
+</head><body>
+<main class="panel">
+  <header class="titlebar"><div class="brand"><i></i><b>LIVE</b><span id="duration">00:00:00</span></div><div class="creator-watermark">Rizki Fadhillah</div><div class="actions"><button id="min">—</button><button id="close">×</button></div></header>
+  <section class="setup"><form id="form"><label>Username atau link TikTok LIVE</label><div class="input"><span>@</span><input id="username" placeholder="username" required><button id="connect">Hubungkan</button></div><p id="error"></p></form></section>
+  <section class="statusbar"><div id="status" class="status idle"><i></i><span>Belum terhubung</span></div><div class="stats"><span title="Penonton aktif saat ini">👁 <b id="viewers">—</b></span><span title="Total like">♥ <b id="likes">0</b></span></div><button id="gear">⚙</button></section>
+  <section id="top" class="top" hidden><label>TOP VIEWERS</label><div id="top-list"></div></section>
+  <section id="join" class="join" hidden><div id="join-avatar" class="mini-avatar">?</div><p><b id="join-name">Penonton</b> baru bergabung</p></section>
+  <section id="settings" class="settings" hidden>
+    <div class="settings-head"><b>Pengaturan overlay</b><button id="settings-close" title="Tutup pengaturan">×</button></div>
+    <label>Ukuran teks <input id="font" type="range" min="12" max="26" value="16"></label>
+    <label>Opasitas <input id="opacity" type="range" min="30" max="100" value="90"></label>
+    <div class="size-setting"><span>Ukuran jendela</span><div><button data-size="small">Kecil</button><button data-size="medium">Sedang</button><button data-size="large">Besar</button></div></div>
+    <label>Selalu di atas <input id="topmost" type="checkbox" checked></label>
+    <label>Klik tembus <input id="passthrough" type="checkbox"></label>
+    <p class="shortcut-help">Matikan klik-tembus kapan saja: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>X</kbd></p>
+  </section>
+  <section id="feed" class="feed"><div id="empty" class="empty"><strong>•••</strong><p>Komentar akan muncul di sini</p></div></section>
+  <footer><span id="count">0 komentar</span><span class="resize-help">↘ tarik tepi untuk resize</span><button id="disconnect" hidden>Putuskan</button></footer>
+</main><script src="renderer.js"></script></body></html>

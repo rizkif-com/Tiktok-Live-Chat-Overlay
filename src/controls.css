@@ -1,0 +1,53 @@
+.settings-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  color: #e3e4e8;
+}
+.settings-head button {
+  width: 27px;
+  height: 27px;
+  border: 0;
+  border-radius: 7px;
+  background: #ffffff12;
+  cursor: pointer;
+  font-size: 17px;
+}
+.settings-head button:hover { background: var(--pink); }
+.size-setting {
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  align-items: center;
+  margin: 8px 0;
+}
+.size-setting > div { display: flex; gap: 5px; }
+.size-setting button {
+  flex: 1;
+  padding: 5px 3px;
+  border: 1px solid #ffffff1e;
+  border-radius: 6px;
+  background: #ffffff0c;
+  cursor: pointer;
+  font-size: 10px;
+}
+.size-setting button:hover { border-color: #25f4ee80; background: #25f4ee12; }
+.shortcut-help { margin: 9px 0 2px; color: #999ca6; font-size: 9px; line-height: 1.5; }
+.shortcut-help kbd { padding: 2px 4px; border: 1px solid #ffffff25; border-radius: 4px; background: #ffffff0d; color: #ddd; }
+.resize-help { margin-left: auto; margin-right: 10px; color: #5f626d; font-size: 9px; }
+.panel { border-width: 2px; }
+.panel:hover { border-color: #ffffff38; }
+.creator-watermark {
+  margin-left: auto;
+  margin-right: 8px;
+  color: #ffffff72;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .35px;
+  pointer-events: none;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px #000;
+}
+@media (max-width: 360px) {
+  .creator-watermark { max-width: 72px; overflow: hidden; text-overflow: ellipsis; }
+}

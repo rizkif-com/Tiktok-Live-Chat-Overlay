@@ -1,0 +1,24 @@
+{
+  "name": "tiktok-live-overlay",
+  "version": "2.1.1",
+  "private": true,
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --win portable"
+  },
+  "dependencies": {
+    "tiktok-live-connector": "^2.5.0"
+  },
+  "devDependencies": {
+    "electron": "^44.5.1",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "id.taiwe.tiktokliveoverlay",
+    "productName": "TikTok Live Overlay",
+    "files": ["src/**/*", "package.json"],
+    "win": { "target": "portable" }
+  }
+}
