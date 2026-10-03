@@ -38,7 +38,7 @@ Aplikasi membaca aktivitas dari LIVE publik secara real-time dan tidak memerluka
 
 ## 📸 Tampilan
 
-![TikTok Live Overlay](docs/screenshot.png)`
+![TikTok Live Overlay](docs/Screenshot.png)
 
 ## 🚀 Cara paling mudah
 
