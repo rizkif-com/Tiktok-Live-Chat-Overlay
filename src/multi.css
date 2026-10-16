@@ -1,0 +1,40 @@
+.source-form { display: grid; grid-template-columns: 90px minmax(0,1fr) auto; gap: 6px; }
+.setup { flex: 0 1 auto; max-height: 190px; overflow-y: auto; }
+.setup-head { display: flex; align-items: center; justify-content: space-between; }
+.setup-head label { margin: 0; }
+.setup-head button { width: 27px; height: 25px; border: 0; border-radius: 7px; background: #ffffff0d; cursor: pointer; color: #aaa; }
+.setup.collapsed { max-height: 43px; overflow: hidden; padding-bottom: 12px; }
+.setup.collapsed #setup-content { display: none; }
+.setup.collapsed #setup-toggle { transform: rotate(180deg); }
+.source-form select,.source-form input,.source-form button { height: 39px; border: 1px solid #ffffff25; outline: 0; border-radius: 9px; background: #ffffff0d; color: #fff; }
+.source-form select { padding: 0 7px; }
+.source-form option { background: #181920; }
+.source-form input { min-width: 0; padding: 0 10px; }
+.source-form button { padding: 0 12px; border: 0; background: linear-gradient(135deg,#fe2c55,#d91344); cursor: pointer; font-weight: 650; }
+.source-form button:disabled { opacity: .55; }
+.sources { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+.source-pill { display: flex; align-items: center; gap: 5px; max-width: 100%; padding: 4px 6px 4px 8px; border: 1px solid #ffffff18; border-radius: 999px; background: #ffffff0b; font-size: 9px; }
+.source-pill span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.source-pill button { width: 17px; height: 17px; padding: 0; border: 0; border-radius: 50%; background: #ffffff12; cursor: pointer; line-height: 15px; }
+.source-pill.tiktok { border-color: #fe2c5540; }.source-pill.youtube { border-color: #ff313140; }.source-pill.twitch { border-color: #9146ff60; }
+.platform-stats { display: flex; gap: 6px; padding: 7px 12px; overflow-x: auto; border-block: 1px solid #ffffff0d; background: #ffffff06; }
+.feed { flex: 1 1 160px; min-height: 120px; }
+.statusbar,.platform-stats,.top,.join,footer { flex-shrink: 0; }
+.platform-stats[hidden] { display: none; }
+.stat-card { min-width: 115px; max-width: 160px; padding: 6px 8px; border: 1px solid #ffffff14; border-radius: 9px; background: #ffffff0a; }
+.stat-card.tiktok { border-left: 3px solid #fe2c55; }.stat-card.youtube { border-left: 3px solid #ff0000; }.stat-card.twitch { border-left: 3px solid #9146ff; }
+.stat-card strong { display: block; overflow: hidden; color: #d8dae0; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.stat-values { display: flex; gap: 9px; margin-top: 4px; color: #aeb1ba; font-size: 10px; }
+.stat-values b { color: #fff; font-variant-numeric: tabular-nums; }
+.platform-badge { flex: none; align-self: flex-start; margin-top: 2px; padding: 2px 5px; border-radius: 5px; color: #fff; font-size: 8px; font-weight: 750; text-transform: uppercase; }
+.platform-badge.tiktok { background: #fe2c55; }.platform-badge.youtube { background: #ff0000; }.platform-badge.twitch { background: #9146ff; }
+.entry.multi { grid-template-columns: 35px minmax(0,1fr) auto; }
+.entry.superchat { border: 1px solid #ffd16655; background: linear-gradient(90deg,#ffd16625,#ffffff08); }
+.entry.membership { border: 1px solid #36e27e44; background: #36e27e12; }
+.entry.cheer,.entry.subscription { border: 1px solid #9146ff66; background: #9146ff18; }
+.rich-text { margin-top: 3px; color: #fff; font-size: var(--size); line-height: 1.45; overflow-wrap: anywhere; }
+.chat-emoji { width: 28px; height: 28px; margin: 0 2px; object-fit: contain; vertical-align: middle; filter: drop-shadow(0 1px 2px #0009); }
+.activity .chat-emoji { width: 25px; height: 25px; }
+.super-sticker { display: block; width: 82px; height: 82px; margin-top: 7px; object-fit: contain; filter: drop-shadow(0 4px 8px #0008); }
+@media (max-width:380px){.source-form{grid-template-columns:80px 1fr}.source-form button{grid-column:1/-1}.stats{display:none}}
+@media (max-height:560px){.top,.join{display:none!important}.setup{max-height:135px}.feed{min-height:120px!important}.platform-stats{max-height:54px}}

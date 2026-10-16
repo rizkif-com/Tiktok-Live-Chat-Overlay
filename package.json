@@ -1,24 +1,33 @@
 {
-  "name": "tiktok-live-overlay",
-  "version": "2.1.1",
+  "name": "multi-live-chat-overlay",
+  "version": "3.2.3",
+  "description": "Overlay multi-stream untuk TikTok LIVE, YouTube Live, dan Twitch Chat.",
+  "author": "Rizki Fadhillah",
   "private": true,
   "type": "module",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --win portable"
+    "start:lite": "node --max-old-space-size=64 src/lite-server.js",
+    "pack": "electron-builder --win portable",
+    "pack:linux": "electron-builder --linux tar.gz",
+    "pack:linux:appimage": "electron-builder --linux AppImage"
   },
   "dependencies": {
-    "tiktok-live-connector": "^2.5.0"
+    "tiktok-live-connector": "^2.5.0",
+    "tmi.js": "^1.8.5",
+    "youtube-chat": "^2.2.0",
+    "ws": "^8.18.3"
   },
   "devDependencies": {
     "electron": "^44.5.1",
     "electron-builder": "^26.15.3"
   },
   "build": {
-    "appId": "id.taiwe.tiktokliveoverlay",
-    "productName": "TikTok Live Overlay",
-    "files": ["src/**/*", "package.json"],
-    "win": { "target": "portable" }
+    "appId": "com.rizkif.multilivechatoverlay",
+    "productName": "Multi Live Chat Overlay",
+    "files": ["src/**/*", "mobile/**/*", "package.json", "Jalankan Lite.cmd"],
+    "win": { "target": "portable" },
+    "linux": { "target": "tar.gz", "category": "Utility" }
   }
 }

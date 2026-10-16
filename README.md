@@ -1,10 +1,10 @@
 <div align="center">
 
-# 🎬 TikTok Live Overlay
+# 🎬 Multi Live Chat Overlay
 
-**Overlay komentar TikTok LIVE yang ringan, transparan, dan selalu tampil di atas aplikasi lain.**
+**Gabungkan chat TikTok LIVE, YouTube Live, dan Twitch dalam satu overlay transparan.**
 
-![Version](https://img.shields.io/badge/version-2.1.1-fe2c55?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-3.2.3-fe2c55?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/platform-Windows-0078D4?style=for-the-badge&logo=windows)
 ![Electron](https://img.shields.io/badge/Electron-44-47848F?style=for-the-badge&logo=electron)
 
@@ -16,13 +16,24 @@ Dibuat oleh **Rizki Fadhillah**
 
 ## Tentang aplikasi
 
-TikTok Live Overlay membantu streamer membaca aktivitas TikTok LIVE tanpa harus terus membuka jendela TikTok. Overlay dapat ditempatkan di atas game, OBS, browser, atau aplikasi lain dan ukurannya bisa disesuaikan.
+Multi Live Chat Overlay membantu streamer membaca beberapa chat sekaligus tanpa berpindah jendela. Overlay dapat ditempatkan di atas game, OBS, browser, atau aplikasi lain dan ukurannya bisa disesuaikan.
 
-Aplikasi membaca aktivitas dari LIVE publik secara real-time dan tidak memerlukan password akun TikTok.
+Aplikasi dapat menghubungkan beberapa sumber TikTok, YouTube, dan Twitch secara bersamaan. Setiap pesan memiliki badge platform agar mudah dibedakan.
 
 ## ✨ Fitur
 
-- 💬 Menampilkan komentar LIVE secara real-time
+- 💬 Menggabungkan beberapa chat LIVE secara real-time
+- 🎵 Mendukung TikTok LIVE
+- ▶️ Mendukung YouTube Live tanpa API key
+- 🟣 Mendukung Twitch Chat tanpa login
+- 🔀 Mendukung banyak stream sekaligus
+- 🏷️ Badge platform pada setiap pesan
+- 📊 Statistik viewer dipisahkan untuk setiap stream/platform
+- 📱 Android companion melalui Wi-Fi lokal dengan token akses
+- 🐧 Paket Linux x64 portabel (`tar.gz`)
+- 🎮 Prototipe Xbox Game Bar Widget untuk overlay yang dapat dipin di atas game
+- 😄 Menampilkan emoji dan emote bergambar dari YouTube/TikTok
+- 🖼️ Menampilkan YouTube Super Sticker
 - 👁️ Menampilkan jumlah penonton aktif saat ini
 - 🏆 Menampilkan top viewers dari snapshot TikTok
 - ❤️ Menampilkan total like
@@ -35,6 +46,7 @@ Aplikasi membaca aktivitas dari LIVE publik secara real-time dan tidak memerluka
 - 🖱️ Mode klik-tembus untuk penggunaan di atas game
 - 📐 Ukuran jendela kecil, sedang, besar, dan resize manual
 - 🔤 Ukuran teks dapat disesuaikan
+- 🪶 Mode Lite tanpa Chromium dengan penggunaan RAM idle di bawah 100 MB
 
 ## 📸 Tampilan
 
@@ -43,10 +55,10 @@ Aplikasi membaca aktivitas dari LIVE publik secara real-time dan tidak memerluka
 ## 🚀 Cara paling mudah
 
 1. Buka folder `dist`.
-2. Jalankan **TikTok Live Overlay 2.1.1.exe**.
-3. Masukkan username host, contohnya `username`, atau tempel URL TikTok LIVE.
-4. Klik **Hubungkan**.
-5. Pastikan akun tujuan sedang LIVE dan siarannya bersifat publik.
+2. Jalankan **Multi Live Chat Overlay 3.2.3.exe**.
+3. Pilih TikTok, YouTube, atau Twitch.
+4. Masukkan username, channel, video ID, channel ID, atau URL sesuai platform.
+5. Klik **Tambah**. Ulangi langkah ini untuk menampilkan beberapa chat sekaligus.
 
 EXE bersifat portable sehingga tidak membutuhkan proses instalasi.
 
@@ -60,6 +72,7 @@ EXE bersifat portable sehingga tidak membutuhkan proses instalasi.
 | Selalu di atas | Menjaga overlay di atas aplikasi lain |
 | Klik tembus | Membuat klik diteruskan ke aplikasi di belakangnya |
 | `Ctrl` + `Shift` + `X` | Mengaktifkan atau mematikan klik-tembus dari aplikasi mana pun |
+| `Ctrl` + `Shift` + `O` | Memunculkan dan memperkuat always-on-top overlay |
 
 > **Penting:** Jika overlay tidak bisa diklik karena mode klik-tembus aktif, tekan **Ctrl + Shift + X** untuk mengembalikannya.
 
@@ -82,6 +95,24 @@ npm start
 
 Di Windows, kamu juga bisa menjalankan `Jalankan.cmd`. Script tersebut akan memasang dependensi secara otomatis jika folder `node_modules` belum tersedia.
 
+### Mode Lite (RAM di bawah 100 MB)
+
+Mode desktop penuh memakai Electron/Chromium sehingga beberapa proses bawaannya tetap memerlukan sekitar 300 MB RAM. Untuk komputer dengan RAM terbatas, jalankan konektor tanpa jendela Electron:
+
+```powershell
+npm run start:lite -- --tiktok username --youtube "https://youtube.com/live/VIDEO_ID" --twitch channel
+```
+
+Semua parameter bersifat opsional dan dapat digabung untuk beberapa platform. Setelah aktif, terminal menampilkan link companion yang dapat dibuka di browser Android atau dipakai oleh Xbox Game Bar Widget. Pengujian idle pada Windows menggunakan sekitar **76 MB RSS**; penggunaan aktual dapat bertambah sesuai jumlah koneksi, chat, dan gambar.
+
+Contoh satu sumber:
+
+```powershell
+npm run start:lite -- --twitch rizkif
+```
+
+Di Windows, perintah yang sama juga dapat diteruskan melalui `Jalankan Lite.cmd`. Tekan `Ctrl+C` untuk menghentikan service.
+
 ## 📦 Membuat EXE portable
 
 ```powershell
@@ -92,8 +123,36 @@ npm run pack
 Hasil build tersedia di:
 
 ```text
-dist/TikTok Live Overlay 2.1.1.exe
+dist/Multi Live Chat Overlay 3.2.3.exe
 ```
+
+### Linux x64
+
+```powershell
+npm run pack:linux
+```
+
+Ekstrak `dist/multi-live-chat-overlay-3.1.1.tar.gz`, lalu jalankan executable `multi-live-chat-overlay`.
+
+### Android companion
+
+APK siap pasang tersedia di `dist/Multi Live Chat Android 1.0.0.apk` dan source Android berada di folder `android-app`.
+
+1. Pasang APK pada ponsel Android 7.0 atau lebih baru.
+2. Jalankan aplikasi desktop atau mode Lite pada PC dan hubungkan sumber LIVE.
+3. Buka **Pengaturan overlay**, lalu salin link **Android companion**.
+4. Pastikan ponsel dan PC menggunakan jaringan Wi-Fi yang sama.
+5. Buka aplikasi Android, tempel link, lalu tekan **Hubungkan**.
+
+Tekan tombol ⚙ di pojok kanan atas aplikasi Android untuk mengganti link PC. Link disimpan pada perangkat dan otomatis dibuka ketika aplikasi dijalankan kembali.
+
+Android companion menerima chat, statistik, emoji, dan sticker dari service desktop. Aplikasi desktop harus tetap berjalan karena library konektor TikTok/YouTube/Twitch berbasis Node.js tidak dapat berjalan langsung di APK Android.
+
+### Xbox Game Bar Widget
+
+Source widget tersedia di folder `gamebar-widget`. Build dan deploy melalui Visual Studio dengan workload **Universal Windows Platform development**, lalu tekan `Win + G`, pilih **Multi Live Chat**, tempel link companion, dan pin widget.
+
+Widget Game Bar adalah solusi yang direkomendasikan untuk tampil di atas game fullscreen. Dukungan true exclusive fullscreen tetap bergantung pada izin overlay dari game dan anti-cheat yang digunakan.
 
 ## 📁 Struktur proyek
 
@@ -106,7 +165,9 @@ tiktok-live-overlay/
 │   ├── index.html      # Struktur tampilan
 │   ├── styles.css      # Tampilan utama
 │   └── controls.css    # Pengaturan dan kontrol ukuran
-├── Jalankan.cmd        # Menjalankan aplikasi di Windows
+├── android-app/        # Source aplikasi Android native
+├── Jalankan.cmd        # Menjalankan aplikasi desktop di Windows
+├── Jalankan Lite.cmd   # Menjalankan service hemat RAM
 ├── package.json
 └── README.md
 ```

@@ -51,3 +51,6 @@
 @media (max-width: 360px) {
   .creator-watermark { max-width: 72px; overflow: hidden; text-overflow: ellipsis; }
 }
+.mobile-link { display: grid; grid-template-columns: 95px minmax(0,1fr) auto; align-items: center; gap: 5px; margin-top: 9px; }
+.mobile-link code { overflow: hidden; padding: 5px; border-radius: 5px; background: #0005; color: #9be8e4; font-size: 8px; text-overflow: ellipsis; white-space: nowrap; user-select: text; }
+.mobile-link button { padding: 5px 7px; border: 1px solid #ffffff1e; border-radius: 6px; background: #ffffff0c; cursor: pointer; font-size: 9px; }
